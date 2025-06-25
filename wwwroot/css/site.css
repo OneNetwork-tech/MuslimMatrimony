@@ -1,0 +1,34 @@
+/*
+  This is your custom stylesheet. While Tailwind CSS is used for most of the
+  utility-based styling, you can add your own custom CSS rules here for more
+  complex or specific styles.
+*/
+
+/* Set a default background color and font for the entire page. 
+   This acts as a fallback and ensures consistency. */
+body {
+    background-color: #f9fafb; /* A light gray, matching the body tag in _Layout.cshtml */
+    font-family: 'Inter', sans-serif;
+}
+
+/* A helper class for the hero section background.
+   While this is also set inline in the _Layout.cshtml, defining it here
+   can be useful for consistency if you reuse it elsewhere without wanting
+   to type out the inline style.
+*/
+.hero-bg {
+    background-color: #f0fdf4; /* A very light, calming green */
+}
+
+/* The 'prose' class from Tailwind is great, but you can override
+   its defaults here if you need to. For example, changing link colors
+   within articles or policy pages.
+*/
+.prose a {
+    color: #047857; /* A deep green for links, matching the site's theme */
+    text-decoration: none;
+}
+
+    .prose a:hover {
+        text-decoration: underline;
+    }

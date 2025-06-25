@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    This .resx file contains all the English language strings for the Home view and shared layout components.
+    The "name" attribute is the key used in the C# code (e.g., Localizer["HeroTitle"]),
+    and the <value> tag contains the text that will be displayed to the user.
+  -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Page Titles -->
+  <data name="Home Page" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="Privacy Policy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+
+  <!-- Navigation & Layout -->
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="How It Works" xml:space="preserve">
+    <value>How It Works</value>
+  </data>
+  <data name="Success Stories" xml:space="preserve">
+    <value>Success Stories</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="All Rights Reserved." xml:space="preserve">
+    <value>All Rights Reserved.</value>
+  </data>
+  <data name="About Us" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Terms of Service" xml:space="preserve">
+    <value>Terms of Service</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>Contact Us</value>
+  </data>
+
+  <!-- Homepage: Hero Section -->
+  <data name="Find Your Righteous Partner" xml:space="preserve">
+    <value>Find Your Righteous Partner</value>
+  </data>
+  <data name="A trusted platform for practicing Muslims to find a spouse based on Islamic values, shared interests, and life goals." xml:space="preserve">
+    <value>A trusted platform for practicing Muslims to find a spouse based on Islamic values, shared interests, and life goals.</value>
+  </data>
+  <data name="Start Your Search" xml:space="preserve">
+    <value>Start Your Search</value>
+  </data>
+
+  <!-- Homepage: Features Section -->
+  <data name="Why Choose Nikah Noor?" xml:space="preserve">
+    <value>Why Choose Nikah Noor?</value>
+  </data>
+  <data name="We are dedicated to helping you find a compatible life partner in a safe and Halal environment." xml:space="preserve">
+    <value>We are dedicated to helping you find a compatible life partner in a safe and Halal environment.</value>
+  </data>
+  <data name="Verified Profiles" xml:space="preserve">
+    <value>Verified Profiles</value>
+  </data>
+  <data name="We manually review profiles to ensure a high-quality and genuine user base." xml:space="preserve">
+    <value>We manually review profiles to ensure a high-quality and genuine user base.</value>
+  </data>
+  <data name="Privacy Control" xml:space="preserve">
+    <value>Privacy Control</value>
+  </data>
+  <data name="You control who sees your photos and personal information, ensuring your privacy." xml:space="preserve">
+    <value>You control who sees your photos and personal information, ensuring your privacy.</value>
+  </data>
+  <data name="Compatibility Focus" xml:space="preserve">
+    <value>Compatibility Focus</value>
+  </data>
+  <data name="Our detailed profiles help you find matches based on deep compatibility." xml:space="preserve">
+    <value>Our detailed profiles help you find matches based on deep compatibility.</value>
+  </data>
+
+  <!-- Homepage: Testimonials Section -->
+  <data name="Alhamdulillah, many have found their life partners with us." xml:space="preserve">
+    <value>Alhamdulillah, many have found their life partners with us.</value>
+  </data>
+  <data name="I was losing hope but decided to try Nikah Noor. I found my husband here, and I couldn't be more grateful. The platform is serious and respectful." xml:space="preserve">
+    <value>"I was losing hope but decided to try Nikah Noor. I found my husband here, and I couldn't be more grateful. The platform is serious and respectful."</value>
+  </data>
+  <data name="- Fatima &amp; Ahmed, USA" xml:space="preserve">
+    <value>- Fatima &amp; Ahmed, USA</value>
+  </data>
+  <data name="The detailed profiles helped me find someone who truly shared my values and deen. JazakAllah Khair to the team for this wonderful service." xml:space="preserve">
+    <value>"The detailed profiles helped me find someone who truly shared my values and deen. JazakAllah Khair to the team for this wonderful service."</value>
+  </data>
+  <data name="- Yusuf &amp; Ayesha, UK" xml:space="preserve">
+    <value>- Yusuf &amp; Ayesha, UK</value>
+  </data>
+
+</root>
