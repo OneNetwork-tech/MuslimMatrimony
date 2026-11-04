@@ -1,0 +1,18 @@
+@model List<BlockedMember>
+@{
+    ViewData["Title"] = L["Blocked members"];
+}
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+@if (Model.Count == 0)
+{
+    <p class="text-muted">@L["You haven't blocked anyone."]</p>
+}
+<ul class="list-group">
+    @foreach (var b in Model)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>@b.FirstName</span>
+            <form asp-action="Unblock" method="post"><input type="hidden" name="userId" value="@b.UserId" /><button class="btn btn-sm btn-outline-secondary" type="submit">@L["Unblock"]</button></form>
+        </li>
+    }
+</ul>

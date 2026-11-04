@@ -1,0 +1,108 @@
+@using System.Globalization
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var culture = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+    var signedIn = SignInManager.IsSignedIn(User);
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    string Active(string c) => controller == c ? "nav-link active" : "nav-link";
+}
+<!DOCTYPE html>
+<html lang="@culture">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] – Nikah Noor</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
+            <div class="container">
+                <a class="navbar-brand brand" asp-area="" asp-controller="Home" asp-action="Index">Nikah Noor</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="@L["Menu"]">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav me-auto">
+                        @if (signedIn)
+                        {
+                            <li class="nav-item"><a class="@Active("Search")" asp-area="" asp-controller="Search" asp-action="Index">@L["Search"]</a></li>
+                            <li class="nav-item"><a class="@Active("Interests")" asp-area="" asp-controller="Interests" asp-action="Index">@L["Interests"]</a></li>
+                            <li class="nav-item"><a class="@Active("Messages")" asp-area="" asp-controller="Messages" asp-action="Index">@L["Messages"]</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">@L["My profile"]</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Profile" asp-action="Edit">@L["Edit profile"]</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Photos" asp-action="Index">@L["Photos"]</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Safety" asp-action="Blocked">@L["Blocked members"]</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">@L["Account settings"]</a></li>
+                                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/PersonalData">@L["My data (GDPR)"]</a></li>
+                                </ul>
+                            </li>
+                            @if (User.IsInRole(AdminService.Role))
+                            {
+                                <li class="nav-item"><a class="@Active("Admin")" asp-area="" asp-controller="Admin" asp-action="Index">@L["Moderation"]</a></li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="how">@L["How it works"]</a></li>
+                        }
+                    </ul>
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <form asp-area="" asp-controller="Home" asp-action="SetLanguage" method="post" class="d-flex">
+                            <input type="hidden" name="returnUrl" value="@(Context.Request.Path + Context.Request.QueryString)" />
+                            <select name="culture" class="form-select form-select-sm js-autosubmit" aria-label="@L["Language"]">
+                                <option value="en" selected="@(culture == "en")">English</option>
+                                <option value="sv" selected="@(culture == "sv")">Svenska</option>
+                            </select>
+                            <noscript><button class="btn btn-sm btn-outline-secondary ms-1" type="submit">OK</button></noscript>
+                        </form>
+                        @if (signedIn)
+                        {
+                            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/" method="post">
+                                <button id="logout" type="submit" class="btn btn-sm btn-outline-secondary">@L["Log out"]</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a class="btn btn-sm btn-outline-primary" asp-area="Identity" asp-page="/Account/Login">@L["Log in"]</a>
+                            <a class="btn btn-sm btn-primary" asp-area="Identity" asp-page="/Account/Register">@L["Register"]</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1 @(ViewData["FullWidth"] is true ? "" : "container py-4")">
+        @if (TempData["Status"] is string status)
+        {
+            <div class="@(ViewData["FullWidth"] is true ? "container pt-3" : "")">
+                <div class="alert alert-info alert-dismissible fade show" role="status">
+                    @L[status]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="@L["Close"]"></button>
+                </div>
+            </div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer py-4 mt-auto">
+        <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 small">
+            <span>&copy; @DateTime.UtcNow.Year Nikah Noor</span>
+            <span class="d-flex gap-3">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">@L["Privacy policy"]</a>
+                <a asp-area="" asp-controller="Home" asp-action="Terms">@L["Terms of service"]</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

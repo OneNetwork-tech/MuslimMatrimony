@@ -1,0 +1,25 @@
+@page
+@model DeletePersonalDataModel
+@{
+    ViewData["Title"] = L["Delete account"];
+    ViewData["ActivePage"] = "PersonalData";
+}
+<h3>@ViewData["Title"]</h3>
+<div class="alert alert-warning" role="alert">
+    <p class="mb-1"><strong>@L["This permanently deletes your account, profile, photos, interests and messages."]</strong></p>
+    <p class="mb-0">@L["It cannot be undone. Download your data first if you want a copy."]</p>
+</div>
+<form id="delete-user" method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    }
+    @if (Model.RequirePassword)
+    {
+        <div class="mb-3">
+            <label asp-for="Input.Password" class="form-label">@L["Password"]</label>
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" />
+        </div>
+    }
+    <button class="btn btn-danger" type="submit">@L["Delete my account permanently"]</button>
+</form>

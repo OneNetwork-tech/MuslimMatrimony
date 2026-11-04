@@ -1,0 +1,8 @@
+@model (string Name, string Label, Enum Selected, IEnumerable<Enum> Values)
+<label class="form-label" for="@Model.Name">@L[Model.Label]</label>
+<select class="form-select" id="@Model.Name" name="@Model.Name">
+    @foreach (var v in Model.Values)
+    {
+        <option value="@v" selected="@(Equals(v, Model.Selected))">@L[Labels.For(v)]</option>
+    }
+</select>

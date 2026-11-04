@@ -1,0 +1,43 @@
+@model InterestsPage
+@{
+    ViewData["Title"] = L["Interests"];
+    string Tab(string t) => Model.Tab == t ? "nav-link active" : "nav-link";
+}
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+<ul class="nav nav-tabs mb-3">
+    <li class="nav-item"><a class="@Tab("received")" asp-route-tab="received">@L["Received"] @if (Model.ReceivedCount > 0) { <span class="badge text-bg-primary">@Model.ReceivedCount</span> }</a></li>
+    <li class="nav-item"><a class="@Tab("matches")" asp-route-tab="matches">@L["Matches"]</a></li>
+    <li class="nav-item"><a class="@Tab("sent")" asp-route-tab="sent">@L["Sent"]</a></li>
+</ul>
+@if (Model.Items.Count == 0)
+{
+    <p class="text-muted">@(Model.Tab switch { "matches" => L["No matches yet. When someone you are interested in is also interested in you, they appear here."], "sent" => L["You have no pending interests."], _ => L["No new interests right now."] })</p>
+}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+    @foreach (var card in Model.Items)
+    {
+        <div class="col">
+            <partial name="_Card" model="card" />
+            @if (Model.Tab == "received")
+            {
+                <form asp-action="Express" method="post" class="mt-2">
+                    <input type="hidden" name="userId" value="@card.UserId" />
+                    <input type="hidden" name="returnUrl" value="/Interests?tab=matches" />
+                    <button class="btn btn-sm btn-primary w-100" type="submit">@L["Accept interest"]</button>
+                </form>
+            }
+            else if (Model.Tab == "matches")
+            {
+                <a class="btn btn-sm btn-outline-primary w-100 mt-2" asp-controller="Messages" asp-action="Thread" asp-route-id="@card.UserId">@L["Send a message"]</a>
+            }
+            else
+            {
+                <form asp-action="Withdraw" method="post" class="mt-2">
+                    <input type="hidden" name="userId" value="@card.UserId" />
+                    <input type="hidden" name="returnUrl" value="/Interests?tab=sent" />
+                    <button class="btn btn-sm btn-outline-secondary w-100" type="submit">@L["Withdraw interest"]</button>
+                </form>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,72 @@
+@model SearchPage
+@{
+    ViewData["Title"] = L["Search"];
+    var f = Model.Filter;
+    var r = Model.Results;
+}
+<h1 class="h3 mb-3">@L["Search profiles"]</h1>
+<form method="get" class="card card-body shadow-sm mb-4">
+    <input type="hidden" name="submitted" value="true" />
+    <div class="row g-2 align-items-end">
+        <div class="col-6 col-md-2"><label class="form-label small" for="AgeMin">@L["Age from"]</label><input class="form-control" type="number" id="AgeMin" name="AgeMin" min="18" max="99" value="@f.AgeMin" /></div>
+        <div class="col-6 col-md-2"><label class="form-label small" for="AgeMax">@L["Age to"]</label><input class="form-control" type="number" id="AgeMax" name="AgeMax" min="18" max="99" value="@f.AgeMax" /></div>
+        <div class="col-6 col-md-2"><label class="form-label small" for="Country">@L["Country"]</label><input class="form-control" id="Country" name="Country" value="@f.Country" /></div>
+        <div class="col-6 col-md-2"><label class="form-label small" for="City">@L["City"]</label><input class="form-control" id="City" name="City" value="@f.City" /></div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small" for="MaritalStatus">@L["Marital status"]</label>
+            <select class="form-select" id="MaritalStatus" name="MaritalStatus">
+                <option value="">@L["Any"]</option>
+                @foreach (var v in Enum.GetValues<MaritalStatus>()) { <option value="@v" selected="@(f.MaritalStatus == v)">@L[Labels.For(v)]</option> }
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small" for="Practice">@L["Religious practice"]</label>
+            <select class="form-select" id="Practice" name="Practice">
+                <option value="">@L["Any"]</option>
+                @foreach (var v in Enum.GetValues<ReligiousPractice>()) { <option value="@v" selected="@(f.Practice == v)">@L[Labels.For(v)]</option> }
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small" for="Sect">@L["Sect"]</label>
+            <select class="form-select" id="Sect" name="Sect">
+                <option value="">@L["Any"]</option>
+                @foreach (var v in Enum.GetValues<Sect>()) { <option value="@v" selected="@(f.Sect == v)">@L[Labels.For(v)]</option> }
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small" for="Sort">@L["Sort by"]</label>
+            <select class="form-select" id="Sort" name="Sort">
+                <option value="active" selected="@(f.Sort != "newest")">@L["Recently active"]</option>
+                <option value="newest" selected="@(f.Sort == "newest")">@L["Newest members"]</option>
+            </select>
+        </div>
+        <div class="col-6 col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="WithPhoto" name="WithPhoto" value="true" checked="@(f.WithPhoto == true)" /><label class="form-check-label" for="WithPhoto">@L["With photo"]</label></div></div>
+        <div class="col-6 col-md-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="WillingToRelocate" name="WillingToRelocate" value="true" checked="@(f.WillingToRelocate == true)" /><label class="form-check-label" for="WillingToRelocate">@L["Willing to relocate"]</label></div></div>
+        <div class="col-12 col-md-2 ms-auto"><button id="searchButton" class="btn btn-primary w-100" type="submit">@L["Search"]</button></div>
+    </div>
+</form>
+
+<p class="text-muted small">@L["{0} profiles found", r.Total]</p>
+@if (r.Items.Count == 0)
+{
+    <p>@L["No profiles match your search. Try widening the filters."]</p>
+}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+    @foreach (var card in r.Items)
+    {
+        <div class="col"><partial name="_Card" model="card" /></div>
+    }
+</div>
+@if (r.TotalPages > 1)
+{
+    var query = Context.Request.Query.Where(q => q.Key != "Page").ToDictionary(q => q.Key, q => q.Value.ToString());
+    <nav class="mt-4" aria-label="@L["Pages"]">
+        <ul class="pagination justify-content-center">
+            @for (var i = 1; i <= r.TotalPages; i++)
+            {
+                var route = new Dictionary<string, string>(query) { ["Page"] = i.ToString(System.Globalization.CultureInfo.InvariantCulture), ["submitted"] = "true" };
+                <li class="page-item @(i == r.Page ? "active" : "")"><a class="page-link" asp-action="Index" asp-all-route-data="route">@i</a></li>
+            }
+        </ul>
+    </nav>
+}

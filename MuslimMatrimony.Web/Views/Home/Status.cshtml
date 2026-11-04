@@ -1,0 +1,9 @@
+@{
+    var code = ViewData["Code"] as int? ?? 500;
+    ViewData["Title"] = code.ToString(System.Globalization.CultureInfo.InvariantCulture);
+}
+<div class="text-center py-5">
+    <h1 class="display-5">@code</h1>
+    <p class="lead">@(code switch { 404 => L["We couldn't find that page."], 403 => L["You don't have access to this page."], 429 => L["Too many requests. Please wait a minute and try again."], _ => L["Something went wrong"] })</p>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">@L["Go to the start page"]</a>
+</div>

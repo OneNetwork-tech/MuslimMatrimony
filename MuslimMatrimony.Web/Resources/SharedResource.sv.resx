@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="A man" xml:space="preserve"><value>En man</value></data>
+  <data name="A respectful platform for Muslims seeking marriage, built around Islamic values, privacy and the involvement of family." xml:space="preserve"><value>En respektfull plattform för muslimer som söker äktenskap, byggd kring islamiska värderingar, integritet och familjens delaktighet.</value></data>
+  <data name="A woman" xml:space="preserve"><value>En kvinna</value></data>
+  <data name="About me" xml:space="preserve"><value>Om mig</value></data>
+  <data name="Accept interest" xml:space="preserve"><value>Besvara intresset</value></data>
+  <data name="Account details: first name, email address, gender, date of birth and password (stored only as a hash)." xml:space="preserve"><value>Kontouppgifter: förnamn, e-postadress, kön, födelsedatum och lösenord (lagras endast som hash).</value></data>
+  <data name="Account settings" xml:space="preserve"><value>Kontoinställningar</value></data>
+  <data name="Age from" xml:space="preserve"><value>Ålder från</value></data>
+  <data name="Age to" xml:space="preserve"><value>Ålder till</value></data>
+  <data name="Ages must be between 18 and 99." xml:space="preserve"><value>Åldern måste vara mellan 18 och 99.</value></data>
+  <data name="All signed-in members" xml:space="preserve"><value>Alla inloggade medlemmar</value></data>
+  <data name="Already have an account?" xml:space="preserve"><value>Har du redan ett konto?</value></data>
+  <data name="Also block this member" xml:space="preserve"><value>Blockera även den här medlemmen</value></data>
+  <data name="An error occurred while processing your request. Please try again." xml:space="preserve"><value>Ett fel uppstod när din begäran behandlades. Försök igen.</value></data>
+  <data name="Annulled" xml:space="preserve"><value>Annullerat</value></data>
+  <data name="Any" xml:space="preserve"><value>Alla</value></data>
+  <data name="Approve" xml:space="preserve"><value>Godkänn</value></data>
+  <data name="Approved" xml:space="preserve"><value>Godkänd</value></data>
+  <data name="Assalamu alaikum" xml:space="preserve"><value>Assalamu alaikum</value></data>
+  <data name="At least 10 characters." xml:space="preserve"><value>Minst 10 tecken.</value></data>
+  <data name="Awaiting review" xml:space="preserve"><value>Väntar på granskning</value></data>
+  <data name="Block" xml:space="preserve"><value>Blockera</value></data>
+  <data name="Block or report anyone, download your data, or delete your account with one click." xml:space="preserve"><value>Blockera eller anmäl vem som helst, ladda ner dina uppgifter eller radera ditt konto med ett klick.</value></data>
+  <data name="Blocked members" xml:space="preserve"><value>Blockerade medlemmar</value></data>
+  <data name="By default only your matches see your photos. You can pause your profile at any time." xml:space="preserve"><value>Som standard ser bara dina matchningar dina foton. Du kan pausa din profil när som helst.</value></data>
+  <data name="Change" xml:space="preserve"><value>Ändra</value></data>
+  <data name="Check your email" xml:space="preserve"><value>Kontrollera din e-post</value></data>
+  <data name="Choose…" xml:space="preserve"><value>Välj…</value></data>
+  <data name="City" xml:space="preserve"><value>Stad</value></data>
+  <data name="Close" xml:space="preserve"><value>Stäng</value></data>
+  <data name="Complete your profile" xml:space="preserve"><value>Fyll i din profil</value></data>
+  <data name="Confirm password" xml:space="preserve"><value>Bekräfta lösenord</value></data>
+  <data name="Country" xml:space="preserve"><value>Land</value></data>
+  <data name="Create a free profile" xml:space="preserve"><value>Skapa en gratis profil</value></data>
+  <data name="Create my profile" xml:space="preserve"><value>Skapa min profil</value></data>
+  <data name="Create your account" xml:space="preserve"><value>Skapa ditt konto</value></data>
+  <data name="Create your profile" xml:space="preserve"><value>Skapa din profil</value></data>
+  <data name="Date of birth" xml:space="preserve"><value>Födelsedatum</value></data>
+  <data name="Delete" xml:space="preserve"><value>Radera</value></data>
+  <data name="Delete account" xml:space="preserve"><value>Radera konto</value></data>
+  <data name="Delete my account permanently" xml:space="preserve"><value>Radera mitt konto permanent</value></data>
+  <data name="Details" xml:space="preserve"><value>Detaljer</value></data>
+  <data name="Didn't get it? Check your spam folder or" xml:space="preserve"><value>Inget mejl? Kontrollera skräpposten eller</value></data>
+  <data name="Dismiss" xml:space="preserve"><value>Avfärda</value></data>
+  <data name="Divorced" xml:space="preserve"><value>Skild</value></data>
+  <data name="Do not share other members' personal information or photos outside the platform." xml:space="preserve"><value>Dela inte andra medlemmars personuppgifter eller foton utanför plattformen.</value></data>
+  <data name="Edit profile" xml:space="preserve"><value>Redigera profil</value></data>
+  <data name="Education" xml:space="preserve"><value>Utbildning</value></data>
+  <data name="Email" xml:space="preserve"><value>E-post</value></data>
+  <data name="Error" xml:space="preserve"><value>Fel</value></data>
+  <data name="Ethnicity" xml:space="preserve"><value>Etnicitet</value></data>
+  <data name="Every photo is reviewed by a moderator, and location data is removed from uploaded images." xml:space="preserve"><value>Varje foto granskas av en moderator, och platsdata tas bort från uppladdade bilder.</value></data>
+  <data name="Faith" xml:space="preserve"><value>Tro</value></data>
+  <data name="Fake profile" xml:space="preserve"><value>Falsk profil</value></data>
+  <data name="Family and future" xml:space="preserve"><value>Familj och framtid</value></data>
+  <data name="Female" xml:space="preserve"><value>Kvinna</value></data>
+  <data name="Filter by age, location, marital status and religious practice." xml:space="preserve"><value>Filtrera på ålder, plats, civilstånd och religiös praxis.</value></data>
+  <data name="Find your righteous partner" xml:space="preserve"><value>Hitta din rättfärdiga livspartner</value></data>
+  <data name="First name" xml:space="preserve"><value>Förnamn</value></data>
+  <data name="Five times daily" xml:space="preserve"><value>Fem gånger om dagen</value></data>
+  <data name="Go to the start page" xml:space="preserve"><value>Till startsidan</value></data>
+  <data name="Harassment" xml:space="preserve"><value>Trakasserier</value></data>
+  <data name="Height (cm)" xml:space="preserve"><value>Längd (cm)</value></data>
+  <data name="Height must be between 120 and 230 cm." xml:space="preserve"><value>Längden måste vara mellan 120 och 230 cm.</value></data>
+  <data name="Home" xml:space="preserve"><value>Hem</value></data>
+  <data name="How it works" xml:space="preserve"><value>Så fungerar det</value></data>
+  <data name="I accept" xml:space="preserve"><value>Jag godkänner</value></data>
+  <data name="I am" xml:space="preserve"><value>Jag är</value></data>
+  <data name="I explicitly consent to Nikah Noor processing my religious beliefs and the other profile details I provide, for the purpose of matchmaking" xml:space="preserve"><value>Jag samtycker uttryckligen till att Nikah Noor behandlar min religiösa övertygelse och de övriga profiluppgifter jag lämnar, i syfte att hitta en partner</value></data>
+  <data name="I have children" xml:space="preserve"><value>Jag har barn</value></data>
+  <data name="I'm interested" xml:space="preserve"><value>Jag är intresserad</value></data>
+  <data name="Inappropriate photos" xml:space="preserve"><value>Olämpliga foton</value></data>
+  <data name="Incorrect password." xml:space="preserve"><value>Fel lösenord.</value></data>
+  <data name="Information about your religion is special category data (GDPR Article 9). We process it only with your explicit consent, which you give at registration, and only to provide matchmaking. You can withdraw consent at any time by deleting your account." xml:space="preserve"><value>Uppgifter om din religion är känsliga personuppgifter (GDPR artikel 9). Vi behandlar dem endast med ditt uttryckliga samtycke, som du lämnar vid registreringen, och endast för att förmedla kontakter. Du kan när som helst återkalla samtycket genom att radera ditt konto.</value></data>
+  <data name="Interest sent" xml:space="preserve"><value>Intresse skickat</value></data>
+  <data name="Interests" xml:space="preserve"><value>Intressen</value></data>
+  <data name="Interests, matches, messages, blocks and reports." xml:space="preserve"><value>Intressen, matchningar, meddelanden, blockeringar och anmälningar.</value></data>
+  <data name="It cannot be undone. Download your data first if you want a copy." xml:space="preserve"><value>Det går inte att ångra. Ladda ner dina uppgifter först om du vill ha en kopia.</value></data>
+  <data name="It's a match! You can now send messages to each other." xml:space="preserve"><value>Det är en matchning! Nu kan ni skicka meddelanden till varandra.</value></data>
+  <data name="Just Muslim" xml:space="preserve"><value>Bara muslim</value></data>
+  <data name="Language" xml:space="preserve"><value>Språk</value></data>
+  <data name="Languages" xml:space="preserve"><value>Språk</value></data>
+  <data name="Lift suspension" xml:space="preserve"><value>Häv avstängning</value></data>
+  <data name="Log in" xml:space="preserve"><value>Logga in</value></data>
+  <data name="Log out" xml:space="preserve"><value>Logga ut</value></data>
+  <data name="Main photo" xml:space="preserve"><value>Huvudfoto</value></data>
+  <data name="Make main" xml:space="preserve"><value>Gör till huvudfoto</value></data>
+  <data name="Male" xml:space="preserve"><value>Man</value></data>
+  <data name="Manage photos" xml:space="preserve"><value>Hantera foton</value></data>
+  <data name="Marital status" xml:space="preserve"><value>Civilstånd</value></data>
+  <data name="Matches" xml:space="preserve"><value>Matchningar</value></data>
+  <data name="Meet in safe, public places and involve your family or wali. Nikah Noor does not verify identities and is not responsible for members' conduct." xml:space="preserve"><value>Träffas på säkra, offentliga platser och involvera din familj eller wali. Nikah Noor verifierar inte identiteter och ansvarar inte för medlemmarnas beteende.</value></data>
+  <data name="Member blocked. You will no longer see each other." xml:space="preserve"><value>Medlemmen är blockerad. Ni kommer inte längre att se varandra.</value></data>
+  <data name="Member suspended." xml:space="preserve"><value>Medlemmen är avstängd.</value></data>
+  <data name="Member unblocked." xml:space="preserve"><value>Blockeringen är borttagen.</value></data>
+  <data name="Members" xml:space="preserve"><value>Medlemmar</value></data>
+  <data name="Menu" xml:space="preserve"><value>Meny</value></data>
+  <data name="Message" xml:space="preserve"><value>Meddelande</value></data>
+  <data name="Messages" xml:space="preserve"><value>Meddelanden</value></data>
+  <data name="Messages must be between 1 and 2000 characters." xml:space="preserve"><value>Meddelanden måste vara mellan 1 och 2000 tecken.</value></data>
+  <data name="Moderated photos" xml:space="preserve"><value>Granskade foton</value></data>
+  <data name="Moderately practising" xml:space="preserve"><value>Måttligt praktiserande</value></data>
+  <data name="Moderation" xml:space="preserve"><value>Moderering</value></data>
+  <data name="Moderators may reject photos and suspend accounts that break these terms." xml:space="preserve"><value>Moderatorer kan neka foton och stänga av konton som bryter mot dessa villkor.</value></data>
+  <data name="Mutual match" xml:space="preserve"><value>Ömsesidig matchning</value></data>
+  <data name="My data (GDPR)" xml:space="preserve"><value>Mina uppgifter (GDPR)</value></data>
+  <data name="My photos" xml:space="preserve"><value>Mina foton</value></data>
+  <data name="My profile" xml:space="preserve"><value>Min profil</value></data>
+  <data name="Name" xml:space="preserve"><value>Namn</value></data>
+  <data name="Never married" xml:space="preserve"><value>Aldrig gift</value></data>
+  <data name="New interests" xml:space="preserve"><value>Nya intressen</value></data>
+  <data name="Newest members" xml:space="preserve"><value>Nyaste medlemmar</value></data>
+  <data name="Nikah Noor is for single Muslims aged 18 or over who are seeking marriage." xml:space="preserve"><value>Nikah Noor är till för ogifta muslimer som är 18 år eller äldre och som söker äktenskap.</value></data>
+  <data name="Nikah Noor is the data controller for the personal data you provide. This policy explains what we collect, why, and the rights you have under the GDPR." xml:space="preserve"><value>Nikah Noor är personuppgiftsansvarig för de uppgifter du lämnar. Den här policyn förklarar vad vi samlar in, varför, och vilka rättigheter du har enligt GDPR.</value></data>
+  <data name="No" xml:space="preserve"><value>Nej</value></data>
+  <data name="No conversations yet. You can message members once you are a mutual match." xml:space="preserve"><value>Inga konversationer ännu. Du kan skriva till medlemmar när ni är en ömsesidig matchning.</value></data>
+  <data name="No matches yet. When someone you are interested in is also interested in you, they appear here." xml:space="preserve"><value>Inga matchningar ännu. När någon du är intresserad av också är intresserad av dig visas de här.</value></data>
+  <data name="No new interests right now." xml:space="preserve"><value>Inga nya intressen just nu.</value></data>
+  <data name="No open reports." xml:space="preserve"><value>Inga öppna anmälningar.</value></data>
+  <data name="No photos yet." xml:space="preserve"><value>Inga foton ännu.</value></data>
+  <data name="No profiles match your search. Try widening the filters." xml:space="preserve"><value>Inga profiler matchar din sökning. Prova att bredda filtren.</value></data>
+  <data name="None." xml:space="preserve"><value>Inga.</value></data>
+  <data name="Not practising" xml:space="preserve"><value>Inte praktiserande</value></data>
+  <data name="Note" xml:space="preserve"><value>Anteckning</value></data>
+  <data name="Nothing to review." xml:space="preserve"><value>Inget att granska.</value></data>
+  <data name="Only matches can message each other, and wali details are shared with matches." xml:space="preserve"><value>Bara matchningar kan skriva till varandra, och wali-uppgifter delas med matchningar.</value></data>
+  <data name="Only my matches" xml:space="preserve"><value>Bara mina matchningar</value></data>
+  <data name="Open reports" xml:space="preserve"><value>Öppna anmälningar</value></data>
+  <data name="Open to it" xml:space="preserve"><value>Öppen för det</value></data>
+  <data name="Optional. Only shown to your mutual matches." xml:space="preserve"><value>Valfritt. Visas bara för dina ömsesidiga matchningar.</value></data>
+  <data name="Other" xml:space="preserve"><value>Annat</value></data>
+  <data name="Pages" xml:space="preserve"><value>Sidor</value></data>
+  <data name="Password" xml:space="preserve"><value>Lösenord</value></data>
+  <data name="Pause my profile (hide it from search)" xml:space="preserve"><value>Pausa min profil (dölj den i sökningar)</value></data>
+  <data name="Phone or email" xml:space="preserve"><value>Telefon eller e-post</value></data>
+  <data name="Photo" xml:space="preserve"><value>Foto</value></data>
+  <data name="Photo deleted." xml:space="preserve"><value>Fotot är raderat.</value></data>
+  <data name="Photo uploaded. It will be visible to others once a moderator has approved it." xml:space="preserve"><value>Fotot är uppladdat. Det blir synligt för andra när en moderator har godkänt det.</value></data>
+  <data name="Photos" xml:space="preserve"><value>Foton</value></data>
+  <data name="Photos are visible to matches only." xml:space="preserve"><value>Foton visas bara för matchningar.</value></data>
+  <data name="Photos to review" xml:space="preserve"><value>Foton att granska</value></data>
+  <data name="Photos you upload. Location and other metadata are removed when you upload." xml:space="preserve"><value>Foton du laddar upp. Plats och annan metadata tas bort vid uppladdningen.</value></data>
+  <data name="Please choose a password." xml:space="preserve"><value>Välj ett lösenord.</value></data>
+  <data name="Please choose your gender." xml:space="preserve"><value>Välj ditt kön.</value></data>
+  <data name="Please complete your profile first." xml:space="preserve"><value>Fyll i din profil först.</value></data>
+  <data name="Please enter a valid date of birth." xml:space="preserve"><value>Ange ett giltigt födelsedatum.</value></data>
+  <data name="Please enter a valid email address." xml:space="preserve"><value>Ange en giltig e-postadress.</value></data>
+  <data name="Please enter your city." xml:space="preserve"><value>Ange din stad.</value></data>
+  <data name="Please enter your country." xml:space="preserve"><value>Ange ditt land.</value></data>
+  <data name="Please enter your date of birth." xml:space="preserve"><value>Ange ditt födelsedatum.</value></data>
+  <data name="Please enter your email address." xml:space="preserve"><value>Ange din e-postadress.</value></data>
+  <data name="Please enter your first name." xml:space="preserve"><value>Ange ditt förnamn.</value></data>
+  <data name="Please upload a JPEG, PNG or WebP image." xml:space="preserve"><value>Ladda upp en JPEG-, PNG- eller WebP-bild.</value></data>
+  <data name="Practising" xml:space="preserve"><value>Praktiserande</value></data>
+  <data name="Prayer" xml:space="preserve"><value>Bön</value></data>
+  <data name="Prefer not to say" xml:space="preserve"><value>Vill inte ange</value></data>
+  <data name="Preferred age from" xml:space="preserve"><value>Önskad ålder från</value></data>
+  <data name="Preferred age to" xml:space="preserve"><value>Önskad ålder till</value></data>
+  <data name="Privacy" xml:space="preserve"><value>Integritet</value></data>
+  <data name="Privacy control" xml:space="preserve"><value>Kontroll över din integritet</value></data>
+  <data name="Privacy policy" xml:space="preserve"><value>Integritetspolicy</value></data>
+  <data name="Profession" xml:space="preserve"><value>Yrke</value></data>
+  <data name="Profiles" xml:space="preserve"><value>Profiler</value></data>
+  <data name="Rarely" xml:space="preserve"><value>Sällan</value></data>
+  <data name="Reason" xml:space="preserve"><value>Anledning</value></data>
+  <data name="Reason for suspension" xml:space="preserve"><value>Anledning till avstängning</value></data>
+  <data name="Received" xml:space="preserve"><value>Mottagna</value></data>
+  <data name="Recently active" xml:space="preserve"><value>Senast aktiva</value></data>
+  <data name="Reference" xml:space="preserve"><value>Referens</value></data>
+  <data name="Register" xml:space="preserve"><value>Registrera</value></data>
+  <data name="Registration is for single Muslims aged 18 or over who are seeking marriage." xml:space="preserve"><value>Registreringen är för ogifta muslimer som är 18 år eller äldre och som söker äktenskap.</value></data>
+  <data name="Reject" xml:space="preserve"><value>Neka</value></data>
+  <data name="Rejected" xml:space="preserve"><value>Nekad</value></data>
+  <data name="Religious practice" xml:space="preserve"><value>Religiös praxis</value></data>
+  <data name="Report" xml:space="preserve"><value>Anmäl</value></data>
+  <data name="Report a member" xml:space="preserve"><value>Anmäl en medlem</value></data>
+  <data name="Reported by" xml:space="preserve"><value>Anmäld av</value></data>
+  <data name="Reports are confidential. The member is not told who reported them." xml:space="preserve"><value>Anmälningar är konfidentiella. Medlemmen får inte veta vem som anmälde.</value></data>
+  <data name="Retention and security" xml:space="preserve"><value>Lagring och säkerhet</value></data>
+  <data name="Safe and in your control" xml:space="preserve"><value>Tryggt och under din kontroll</value></data>
+  <data name="Save profile" xml:space="preserve"><value>Spara profil</value></data>
+  <data name="Say salaam! Keep conversations respectful and consider involving your wali." xml:space="preserve"><value>Säg salaam! Håll samtalen respektfulla och överväg att involvera din wali.</value></data>
+  <data name="Scam or asking for money" xml:space="preserve"><value>Bedrägeri eller ber om pengar</value></data>
+  <data name="Search" xml:space="preserve"><value>Sök</value></data>
+  <data name="Search profiles" xml:space="preserve"><value>Sök profiler</value></data>
+  <data name="Sect" xml:space="preserve"><value>Inriktning</value></data>
+  <data name="See my matches" xml:space="preserve"><value>Se mina matchningar</value></data>
+  <data name="Send" xml:space="preserve"><value>Skicka</value></data>
+  <data name="Send a message" xml:space="preserve"><value>Skicka ett meddelande</value></data>
+  <data name="Send report" xml:space="preserve"><value>Skicka anmälan</value></data>
+  <data name="Sent" xml:space="preserve"><value>Skickade</value></data>
+  <data name="Shia" xml:space="preserve"><value>Shia</value></data>
+  <data name="Show interest" xml:space="preserve"><value>Visa intresse</value></data>
+  <data name="Signed-in members of the opposite gender can see your profile text, unless you pause your profile." xml:space="preserve"><value>Inloggade medlemmar av motsatt kön kan se din profiltext, om du inte pausar din profil.</value></data>
+  <data name="Something went wrong" xml:space="preserve"><value>Något gick fel</value></data>
+  <data name="Sometimes" xml:space="preserve"><value>Ibland</value></data>
+  <data name="Sort by" xml:space="preserve"><value>Sortera efter</value></data>
+  <data name="Special category data" xml:space="preserve"><value>Känsliga personuppgifter</value></data>
+  <data name="Sunni" xml:space="preserve"><value>Sunni</value></data>
+  <data name="Suspend" xml:space="preserve"><value>Stäng av</value></data>
+  <data name="Suspended" xml:space="preserve"><value>Avstängda</value></data>
+  <data name="Suspended members" xml:space="preserve"><value>Avstängda medlemmar</value></data>
+  <data name="Suspension lifted." xml:space="preserve"><value>Avstängningen är hävd.</value></data>
+  <data name="Talk with respect" xml:space="preserve"><value>Samtala med respekt</value></data>
+  <data name="Tell others about your deen, family and what you are looking for." xml:space="preserve"><value>Berätta om din deen, din familj och vad du söker.</value></data>
+  <data name="Terms of service" xml:space="preserve"><value>Användarvillkor</value></data>
+  <data name="Thank you. Our moderators will review your report." xml:space="preserve"><value>Tack. Våra moderatorer granskar din anmälan.</value></data>
+  <data name="That member can't be suspended." xml:space="preserve"><value>Den medlemmen kan inte stängas av.</value></data>
+  <data name="The password must be at least 10 characters." xml:space="preserve"><value>Lösenordet måste vara minst 10 tecken.</value></data>
+  <data name="The passwords do not match." xml:space="preserve"><value>Lösenorden matchar inte.</value></data>
+  <data name="The photo is too large (max 5 MB)." xml:space="preserve"><value>Fotot är för stort (max 5 MB).</value></data>
+  <data name="This permanently deletes your account, profile, photos, interests and messages." xml:space="preserve"><value>Detta raderar permanent ditt konto, din profil, dina foton, intressen och meddelanden.</value></data>
+  <data name="Too many requests. Please wait a minute and try again." xml:space="preserve"><value>För många förfrågningar. Vänta en minut och försök igen.</value></data>
+  <data name="Treat other members with respect. Harassment, explicit content, requests for money and commercial use are not allowed." xml:space="preserve"><value>Behandla andra medlemmar med respekt. Trakasserier, explicit innehåll, förfrågningar om pengar och kommersiell användning är inte tillåtet.</value></data>
+  <data name="Unblock" xml:space="preserve"><value>Ta bort blockering</value></data>
+  <data name="Under 18" xml:space="preserve"><value>Under 18 år</value></data>
+  <data name="Unread messages" xml:space="preserve"><value>Olästa meddelanden</value></data>
+  <data name="Upload" xml:space="preserve"><value>Ladda upp</value></data>
+  <data name="Upload up to 6 photos (JPEG, PNG or WebP, max 5 MB). Location and camera data are removed. A moderator reviews each photo before others can see it." xml:space="preserve"><value>Ladda upp upp till 6 foton (JPEG, PNG eller WebP, max 5 MB). Plats- och kameradata tas bort. En moderator granskar varje foto innan andra kan se det.</value></data>
+  <data name="Use at most 100 characters." xml:space="preserve"><value>Använd högst 100 tecken.</value></data>
+  <data name="Use at most 120 characters." xml:space="preserve"><value>Använd högst 120 tecken.</value></data>
+  <data name="Use at most 200 characters." xml:space="preserve"><value>Använd högst 200 tecken.</value></data>
+  <data name="Use at most 2000 characters." xml:space="preserve"><value>Använd högst 2000 tecken.</value></data>
+  <data name="Use at most 254 characters." xml:space="preserve"><value>Använd högst 254 tecken.</value></data>
+  <data name="Use at most 60 characters." xml:space="preserve"><value>Använd högst 60 tecken.</value></data>
+  <data name="Use at most 80 characters." xml:space="preserve"><value>Använd högst 80 tecken.</value></data>
+  <data name="Usually" xml:space="preserve"><value>Oftast</value></data>
+  <data name="Version" xml:space="preserve"><value>Version</value></data>
+  <data name="Very practising" xml:space="preserve"><value>Mycket praktiserande</value></data>
+  <data name="Wali (guardian)" xml:space="preserve"><value>Wali (förmyndare)</value></data>
+  <data name="Wali details are shown only to your matches. Messages are visible only to you and the other member." xml:space="preserve"><value>Wali-uppgifter visas bara för dina matchningar. Meddelanden syns bara för dig och den andra medlemmen.</value></data>
+  <data name="We couldn't find that page." xml:space="preserve"><value>Vi kunde inte hitta sidan.</value></data>
+  <data name="We have sent you an email with a link to confirm your account. Follow the link, then log in to create your profile." xml:space="preserve"><value>Vi har skickat ett mejl med en länk för att bekräfta ditt konto. Följ länken och logga sedan in för att skapa din profil.</value></data>
+  <data name="We keep your data while your account exists. Passwords are hashed, all traffic is encrypted, and photos are served only to members allowed to see them. We do not sell your data or use third-party tracking." xml:space="preserve"><value>Vi sparar dina uppgifter så länge ditt konto finns. Lösenord hashas, all trafik krypteras och foton visas bara för medlemmar som får se dem. Vi säljer inte dina uppgifter och använder ingen spårning från tredje part.</value></data>
+  <data name="What I am looking for" xml:space="preserve"><value>Vad jag söker</value></data>
+  <data name="What we collect" xml:space="preserve"><value>Vad vi samlar in</value></data>
+  <data name="When the interest is mutual, it's a match." xml:space="preserve"><value>När intresset är ömsesidigt blir det en matchning.</value></data>
+  <data name="Who can see what" xml:space="preserve"><value>Vem ser vad</value></data>
+  <data name="Why Nikah Noor?" xml:space="preserve"><value>Varför Nikah Noor?</value></data>
+  <data name="Widowed" xml:space="preserve"><value>Änka/änkling</value></data>
+  <data name="Willing to relocate" xml:space="preserve"><value>Beredd att flytta</value></data>
+  <data name="With photo" xml:space="preserve"><value>Med foto</value></data>
+  <data name="Withdraw interest" xml:space="preserve"><value>Dra tillbaka intresse</value></data>
+  <data name="Would like children" xml:space="preserve"><value>Vill ha barn</value></data>
+  <data name="Yes" xml:space="preserve"><value>Ja</value></data>
+  <data name="You are no longer matched, so you can't send new messages." xml:space="preserve"><value>Ni är inte längre matchade, så du kan inte skicka nya meddelanden.</value></data>
+  <data name="You can access, correct and download all your data, and delete your account, under My data (GDPR). Deleting your account removes your profile, photos, interests and messages permanently. You can also lodge a complaint with your data protection authority (in Sweden: IMY)." xml:space="preserve"><value>Under Mina uppgifter (GDPR) kan du se, rätta och ladda ner alla dina uppgifter samt radera ditt konto. När du raderar kontot tas din profil, dina foton, intressen och meddelanden bort permanent. Du kan också klaga hos tillsynsmyndigheten (i Sverige: IMY).</value></data>
+  <data name="You can delete your account at any time." xml:space="preserve"><value>Du kan radera ditt konto när som helst.</value></data>
+  <data name="You can withdraw consent at any time by deleting your account." xml:space="preserve"><value>Du kan när som helst återkalla ditt samtycke genom att radera ditt konto.</value></data>
+  <data name="You don't have access to this page." xml:space="preserve"><value>Du har inte behörighet till den här sidan.</value></data>
+  <data name="You have no pending interests." xml:space="preserve"><value>Du har inga obesvarade intressen.</value></data>
+  <data name="You have reached the maximum number of photos." xml:space="preserve"><value>Du har nått det högsta antalet foton.</value></data>
+  <data name="You haven't blocked anyone." xml:space="preserve"><value>Du har inte blockerat någon.</value></data>
+  <data name="You must accept the terms to register." xml:space="preserve"><value>Du måste godkänna villkoren för att registrera dig.</value></data>
+  <data name="You must be at least 18 years old to register." xml:space="preserve"><value>Du måste vara minst 18 år för att registrera dig.</value></data>
+  <data name="You must give truthful information and use only photos of yourself." xml:space="preserve"><value>Du måste lämna sanningsenliga uppgifter och bara använda foton på dig själv.</value></data>
+  <data name="You need a profile before you can search and show interest." xml:space="preserve"><value>Du behöver en profil innan du kan söka och visa intresse.</value></data>
+  <data name="Your account and all your data have been deleted." xml:space="preserve"><value>Ditt konto och alla dina uppgifter har raderats.</value></data>
+  <data name="Your consent is required because a matrimonial profile contains religious information." xml:space="preserve"><value>Ditt samtycke krävs eftersom en äktenskapsprofil innehåller uppgifter om religion.</value></data>
+  <data name="Your email address and date of birth are never shown to other members; they see your age only." xml:space="preserve"><value>Din e-postadress och ditt födelsedatum visas aldrig för andra medlemmar; de ser bara din ålder.</value></data>
+  <data name="Your interest has been sent." xml:space="preserve"><value>Ditt intresse har skickats.</value></data>
+  <data name="Your interest has been withdrawn." xml:space="preserve"><value>Ditt intresse har dragits tillbaka.</value></data>
+  <data name="Your photos are visible only to your matches unless you choose to show them to all members. Moderators review every photo." xml:space="preserve"><value>Dina foton syns bara för dina matchningar om du inte väljer att visa dem för alla medlemmar. Moderatorer granskar varje foto.</value></data>
+  <data name="Your profile has been created. Add a photo and start searching." xml:space="preserve"><value>Din profil har skapats. Lägg till ett foto och börja söka.</value></data>
+  <data name="Your profile has been saved." xml:space="preserve"><value>Din profil har sparats.</value></data>
+  <data name="Your profile is paused and hidden from search." xml:space="preserve"><value>Din profil är pausad och dold i sökningar.</value></data>
+  <data name="Your profile: marital status, religious practice and sect, education, profession, location, about you and what you are looking for, and optional wali contact details." xml:space="preserve"><value>Din profil: civilstånd, religiös praxis och inriktning, utbildning, yrke, ort, om dig och vad du söker, samt valfria kontaktuppgifter till wali.</value></data>
+  <data name="Your rights" xml:space="preserve"><value>Dina rättigheter</value></data>
+  <data name="and" xml:space="preserve"><value>och</value></data>
+  <data name="the privacy policy" xml:space="preserve"><value>integritetspolicyn</value></data>
+  <data name="send it again" xml:space="preserve"><value>skicka det igen</value></data>
+  <data name="the terms of service" xml:space="preserve"><value>användarvillkoren</value></data>
+  <data name="{0} profiles found" xml:space="preserve"><value>{0} profiler hittades</value></data>
+  <data name="{0} reports in total" xml:space="preserve"><value>{0} anmälningar totalt</value></data>
+</root>

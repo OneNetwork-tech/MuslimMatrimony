@@ -1,0 +1,31 @@
+@model DashboardModel
+@{
+    ViewData["Title"] = L["Home"];
+}
+<h1 class="h3 mb-4">@L["Assalamu alaikum"], @Model.Member.FirstName</h1>
+@if (Model.Member.Profile is null)
+{
+    <div class="card border-primary">
+        <div class="card-body">
+            <h2 class="h5">@L["Complete your profile"]</h2>
+            <p>@L["You need a profile before you can search and show interest."]</p>
+            <a class="btn btn-primary" asp-controller="Profile" asp-action="Edit">@L["Create my profile"]</a>
+        </div>
+    </div>
+}
+else
+{
+    @if (Model.Member.Profile.IsHidden)
+    {
+        <div class="alert alert-warning">@L["Your profile is paused and hidden from search."] <a asp-controller="Profile" asp-action="Edit">@L["Change"]</a></div>
+    }
+    <div class="row g-3">
+        <div class="col-md-4"><a class="stat card text-decoration-none" asp-controller="Interests" asp-action="Index" asp-route-tab="matches"><span class="stat-value">@Model.Matches</span><span>@L["Matches"]</span></a></div>
+        <div class="col-md-4"><a class="stat card text-decoration-none" asp-controller="Interests" asp-action="Index"><span class="stat-value">@Model.Received</span><span>@L["New interests"]</span></a></div>
+        <div class="col-md-4"><a class="stat card text-decoration-none" asp-controller="Messages" asp-action="Index"><span class="stat-value">@Model.Unread</span><span>@L["Unread messages"]</span></a></div>
+    </div>
+    <div class="mt-4 d-flex gap-2">
+        <a class="btn btn-primary" asp-controller="Search" asp-action="Index">@L["Search profiles"]</a>
+        <a class="btn btn-outline-primary" asp-controller="Photos" asp-action="Index">@L["Manage photos"]</a>
+    </div>
+}

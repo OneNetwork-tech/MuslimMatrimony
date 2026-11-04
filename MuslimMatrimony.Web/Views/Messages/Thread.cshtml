@@ -1,0 +1,33 @@
+@model ThreadPage
+@{
+    ViewData["Title"] = Model.OtherFirstName;
+}
+<div class="d-flex align-items-center mb-3 gap-3">
+    <a asp-action="Index" class="btn btn-sm btn-outline-secondary">&larr; @L["Messages"]</a>
+    <h1 class="h4 mb-0"><a asp-controller="Profile" asp-action="Show" asp-route-id="@Model.OtherUserId" class="text-reset">@Model.OtherFirstName</a></h1>
+</div>
+<div class="chat card card-body mb-3" id="chat">
+    @if (Model.Messages.Count == 0)
+    {
+        <p class="text-muted mb-0">@L["Say salaam! Keep conversations respectful and consider involving your wali."]</p>
+    }
+    @foreach (var m in Model.Messages)
+    {
+        <div class="bubble @(m.Mine ? "mine" : "theirs")">
+            <div class="prewrap">@m.Body</div>
+            <time class="small js-localtime" datetime="@m.SentAt.ToString("o")">@m.SentAt.ToString("yyyy-MM-dd HH:mm") UTC</time>
+        </div>
+    }
+</div>
+@if (Model.CanSend)
+{
+    <form asp-action="Send" method="post" class="d-flex gap-2">
+        <input type="hidden" name="userId" value="@Model.OtherUserId" />
+        <textarea name="body" id="messageBody" class="form-control" rows="2" maxlength="2000" required aria-label="@L["Message"]"></textarea>
+        <button id="sendMessage" class="btn btn-primary align-self-end" type="submit">@L["Send"]</button>
+    </form>
+}
+else
+{
+    <div class="alert alert-secondary">@L["You are no longer matched, so you can't send new messages."]</div>
+}

@@ -1,0 +1,80 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = L["Create your account"];
+}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h1 class="h3 mb-3">@ViewData["Title"]</h1>
+                <p class="text-muted">@L["Registration is for single Muslims aged 18 or over who are seeking marriage."]</p>
+                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" novalidate>
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    }
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Input.FirstName" class="form-label">@L["First name"]</label>
+                            <input asp-for="Input.FirstName" class="form-control" autocomplete="given-name" />
+                            <span asp-validation-for="Input.FirstName" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.Email" class="form-label">@L["Email"]</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" />
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.Gender" class="form-label">@L["I am"]</label>
+                            <select asp-for="Input.Gender" class="form-select">
+                                <option value="">@L["Choose…"]</option>
+                                <option value="Male">@L["A man"]</option>
+                                <option value="Female">@L["A woman"]</option>
+                            </select>
+                            <span asp-validation-for="Input.Gender" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.DateOfBirth" class="form-label">@L["Date of birth"]</label>
+                            <input asp-for="Input.DateOfBirth" type="date" class="form-control" autocomplete="bday" />
+                            <span asp-validation-for="Input.DateOfBirth" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.Password" class="form-label">@L["Password"]</label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" />
+                            <div class="form-text">@L["At least 10 characters."]</div>
+                            <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Input.ConfirmPassword" class="form-label">@L["Confirm password"]</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input asp-for="Input.ConsentSpecialCategory" class="form-check-input" />
+                                <label asp-for="Input.ConsentSpecialCategory" class="form-check-label">@L["I explicitly consent to Nikah Noor processing my religious beliefs and the other profile details I provide, for the purpose of matchmaking"]</label>
+                                <div class="form-text">@L["You can withdraw consent at any time by deleting your account."]</div>
+                                <span asp-validation-for="Input.ConsentSpecialCategory" class="text-danger small d-block"></span>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input asp-for="Input.AcceptTerms" class="form-check-input" />
+                                <label asp-for="Input.AcceptTerms" class="form-check-label">
+                                    @L["I accept"] <a asp-area="" asp-controller="Home" asp-action="Terms" target="_blank">@L["the terms of service"]</a>
+                                    @L["and"] <a asp-area="" asp-controller="Home" asp-action="Privacy" target="_blank">@L["the privacy policy"]</a>
+                                </label>
+                                <span asp-validation-for="Input.AcceptTerms" class="text-danger small d-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="registerSubmit" type="submit" class="btn btn-primary btn-lg w-100 mt-4">@L["Register"]</button>
+                </form>
+                <p class="mt-3 mb-0 text-center">@L["Already have an account?"] <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">@L["Log in"]</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

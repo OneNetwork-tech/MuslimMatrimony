@@ -1,0 +1,10 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = L["Error"];
+}
+<h1 class="h3">@L["Something went wrong"]</h1>
+<p>@L["An error occurred while processing your request. Please try again."]</p>
+@if (Model?.ShowRequestId == true)
+{
+    <p class="small text-muted">@L["Reference"]: <code>@Model.RequestId</code></p>
+}

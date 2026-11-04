@@ -1,0 +1,73 @@
+@model AdminPage
+@{
+    ViewData["Title"] = L["Moderation"];
+    var s = Model.Stats;
+}
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+<div class="row g-3 mb-4">
+    <div class="col"><div class="stat card"><span class="stat-value">@s.Members</span><span>@L["Members"]</span></div></div>
+    <div class="col"><div class="stat card"><span class="stat-value">@s.Profiles</span><span>@L["Profiles"]</span></div></div>
+    <div class="col"><div class="stat card"><span class="stat-value">@s.PendingPhotos</span><span>@L["Photos to review"]</span></div></div>
+    <div class="col"><div class="stat card"><span class="stat-value">@s.OpenReports</span><span>@L["Open reports"]</span></div></div>
+    <div class="col"><div class="stat card"><span class="stat-value">@s.Suspended</span><span>@L["Suspended"]</span></div></div>
+</div>
+
+<h2 class="h5">@L["Photos to review"]</h2>
+@if (Model.Photos.Count == 0) { <p class="text-muted">@L["Nothing to review."]</p> }
+<div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-3 mb-4">
+    @foreach (var p in Model.Photos)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img src="/Photos/File/@p.Id" class="card-img-top member-photo" alt="" />
+                <div class="card-body p-2 small">
+                    <div>@p.FirstName</div>
+                    <div class="d-flex gap-1 mt-1">
+                        <form asp-action="Photo" method="post"><input type="hidden" name="id" value="@p.Id" /><input type="hidden" name="approve" value="true" /><button class="btn btn-sm btn-success" type="submit">@L["Approve"]</button></form>
+                        <form asp-action="Photo" method="post"><input type="hidden" name="id" value="@p.Id" /><input type="hidden" name="approve" value="false" /><button class="btn btn-sm btn-outline-danger" type="submit">@L["Reject"]</button></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<h2 class="h5">@L["Open reports"]</h2>
+@if (Model.Reports.Count == 0) { <p class="text-muted">@L["No open reports."]</p> }
+@foreach (var r in Model.Reports)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <strong>@r.ReportedName <span class="text-muted small">(@L["{0} reports in total", r.ReportsAgainst])</span></strong>
+                <span class="small text-muted">@r.CreatedAt.ToString("yyyy-MM-dd HH:mm") UTC</span>
+            </div>
+            <div class="small">@L["Reason"]: @L[Labels.For(r.Reason)] · @L["Reported by"] @r.ReporterName</div>
+            @if (!string.IsNullOrEmpty(r.Details)) { <p class="prewrap mt-2 mb-2">@r.Details</p> }
+            <div class="d-flex flex-wrap gap-2 mt-2">
+                <form asp-action="Suspend" method="post" class="d-flex gap-1">
+                    <input type="hidden" name="userId" value="@r.ReportedUserId" />
+                    <input name="reason" class="form-control form-control-sm" placeholder="@L["Reason for suspension"]" maxlength="500" />
+                    <button class="btn btn-sm btn-danger" type="submit">@L["Suspend"]</button>
+                </form>
+                <form asp-action="Dismiss" method="post" class="d-flex gap-1">
+                    <input type="hidden" name="id" value="@r.Id" />
+                    <input name="note" class="form-control form-control-sm" placeholder="@L["Note"]" maxlength="1000" />
+                    <button class="btn btn-sm btn-outline-secondary" type="submit">@L["Dismiss"]</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+<h2 class="h5 mt-4">@L["Suspended members"]</h2>
+@if (Model.Suspended.Count == 0) { <p class="text-muted">@L["None."]</p> }
+<ul class="list-group">
+    @foreach (var m in Model.Suspended)
+    {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>@m.FirstName <span class="text-muted small">@m.Email – @m.Reason</span></span>
+            <form asp-action="Unsuspend" method="post"><input type="hidden" name="userId" value="@m.UserId" /><button class="btn btn-sm btn-outline-secondary" type="submit">@L["Lift suspension"]</button></form>
+        </li>
+    }
+</ul>

@@ -1,0 +1,22 @@
+@model ProfileCard
+<div class="card h-100 member-card">
+    <a asp-controller="Profile" asp-action="Show" asp-route-id="@Model.UserId" class="text-decoration-none">
+        @if (Model.PhotoId is Guid photo)
+        {
+            <img src="/Photos/File/@photo" class="card-img-top member-photo" alt="@Model.FirstName" loading="lazy" />
+        }
+        else
+        {
+            <div class="card-img-top member-photo placeholder-photo" aria-hidden="true">@Model.FirstName[..1]</div>
+        }
+    </a>
+    <div class="card-body">
+        <h2 class="h5 card-title mb-1"><a asp-controller="Profile" asp-action="Show" asp-route-id="@Model.UserId" class="stretched-link text-reset text-decoration-none">@Model.FirstName, @Model.Age</a></h2>
+        <p class="card-text small text-muted mb-1">@Model.City, @Model.Country</p>
+        <p class="card-text small mb-0">@L[Labels.For(Model.MaritalStatus)] · @L[Labels.For(Model.ReligiousPractice)]</p>
+        @if (!string.IsNullOrEmpty(Model.Profession))
+        {
+            <p class="card-text small text-muted mb-0">@Model.Profession</p>
+        }
+    </div>
+</div>

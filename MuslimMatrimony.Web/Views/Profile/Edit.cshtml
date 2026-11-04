@@ -1,0 +1,98 @@
+@model ProfileForm
+@{
+    ViewData["Title"] = L["My profile"];
+}
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+<form asp-action="Edit" method="post" class="card card-body shadow-sm" novalidate>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+    }
+
+    <h2 class="h5">@L["About me"]</h2>
+    <div class="row g-3 mb-4">
+        <div class="col-md-4"><partial name="_EnumSelect" model="@(("MaritalStatus", "Marital status", (Enum)Model.MaritalStatus, Labels.Options<MaritalStatus>()))" /></div>
+        <div class="col-md-4">
+            <label asp-for="HeightCm" class="form-label">@L["Height (cm)"]</label>
+            <input asp-for="HeightCm" class="form-control" min="120" max="230" />
+        </div>
+        <div class="col-md-4">
+            <label asp-for="Ethnicity" class="form-label">@L["Ethnicity"]</label>
+            <input asp-for="Ethnicity" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label asp-for="City" class="form-label">@L["City"] *</label>
+            <input asp-for="City" class="form-control" required />
+            <span asp-validation-for="City" class="text-danger small"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Country" class="form-label">@L["Country"] *</label>
+            <input asp-for="Country" class="form-control" required />
+            <span asp-validation-for="Country" class="text-danger small"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Education" class="form-label">@L["Education"]</label>
+            <input asp-for="Education" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Profession" class="form-label">@L["Profession"]</label>
+            <input asp-for="Profession" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label asp-for="Languages" class="form-label">@L["Languages"]</label>
+            <input asp-for="Languages" class="form-control" />
+        </div>
+        <div class="col-12">
+            <label asp-for="AboutMe" class="form-label">@L["About me"]</label>
+            <textarea asp-for="AboutMe" class="form-control" rows="4" maxlength="2000"></textarea>
+        </div>
+    </div>
+
+    <h2 class="h5">@L["Faith"]</h2>
+    <div class="row g-3 mb-4">
+        <div class="col-md-4"><partial name="_EnumSelect" model="@(("Sect", "Sect", (Enum)Model.Sect, Labels.Options<Sect>()))" /></div>
+        <div class="col-md-4"><partial name="_EnumSelect" model="@(("ReligiousPractice", "Religious practice", (Enum)Model.ReligiousPractice, Labels.Options<ReligiousPractice>()))" /></div>
+        <div class="col-md-4"><partial name="_EnumSelect" model="@(("PrayerFrequency", "Prayer", (Enum)Model.PrayerFrequency, Labels.Options<PrayerFrequency>()))" /></div>
+    </div>
+
+    <h2 class="h5">@L["Family and future"]</h2>
+    <div class="row g-3 mb-4">
+        <div class="col-md-4"><partial name="_EnumSelect" model="@(("WantsChildren", "Would like children", (Enum)Model.WantsChildren, Labels.Options<ChildrenWish>()))" /></div>
+        <div class="col-md-4 d-flex align-items-end"><div class="form-check"><input asp-for="HasChildren" class="form-check-input" /><label asp-for="HasChildren" class="form-check-label">@L["I have children"]</label></div></div>
+        <div class="col-md-4 d-flex align-items-end"><div class="form-check"><input asp-for="WillingToRelocate" class="form-check-input" /><label asp-for="WillingToRelocate" class="form-check-label">@L["Willing to relocate"]</label></div></div>
+        <div class="col-12">
+            <label asp-for="LookingFor" class="form-label">@L["What I am looking for"]</label>
+            <textarea asp-for="LookingFor" class="form-control" rows="3" maxlength="2000"></textarea>
+        </div>
+        <div class="col-md-4">
+            <label asp-for="PreferredAgeMin" class="form-label">@L["Preferred age from"]</label>
+            <input asp-for="PreferredAgeMin" class="form-control" min="18" max="99" />
+        </div>
+        <div class="col-md-4">
+            <label asp-for="PreferredAgeMax" class="form-label">@L["Preferred age to"]</label>
+            <input asp-for="PreferredAgeMax" class="form-control" min="18" max="99" />
+            <span asp-validation-for="PreferredAgeMax" class="text-danger small"></span>
+        </div>
+    </div>
+
+    <h2 class="h5">@L["Wali (guardian)"]</h2>
+    <p class="small text-muted">@L["Optional. Only shown to your mutual matches."]</p>
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <label asp-for="WaliName" class="form-label">@L["Name"]</label>
+            <input asp-for="WaliName" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <label asp-for="WaliContact" class="form-label">@L["Phone or email"]</label>
+            <input asp-for="WaliContact" class="form-control" />
+        </div>
+    </div>
+
+    <h2 class="h5">@L["Privacy"]</h2>
+    <div class="row g-3 mb-4">
+        <div class="col-md-6"><partial name="_EnumSelect" model="@(("PhotoVisibility", "Who can see my photos", (Enum)Model.PhotoVisibility, Labels.Options<PhotoVisibility>()))" /></div>
+        <div class="col-md-6 d-flex align-items-end"><div class="form-check"><input asp-for="IsHidden" class="form-check-input" /><label asp-for="IsHidden" class="form-check-label">@L["Pause my profile (hide it from search)"]</label></div></div>
+    </div>
+
+    <button id="saveProfile" type="submit" class="btn btn-primary btn-lg">@L["Save profile"]</button>
+</form>

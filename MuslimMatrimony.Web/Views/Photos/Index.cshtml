@@ -1,0 +1,40 @@
+@model List<Photo>
+@{
+    ViewData["Title"] = L["Photos"];
+}
+<h1 class="h3 mb-3">@L["My photos"]</h1>
+<p class="text-muted">@L["Upload up to 6 photos (JPEG, PNG or WebP, max 5 MB). Location and camera data are removed. A moderator reviews each photo before others can see it."]</p>
+<form asp-action="Upload" method="post" enctype="multipart/form-data" class="card card-body shadow-sm mb-4">
+    <div class="d-flex flex-wrap gap-2 align-items-center">
+        <input type="file" name="file" id="photoFile" accept="image/jpeg,image/png,image/webp" class="form-control w-auto" required aria-label="@L["Photo"]" />
+        <button id="uploadPhoto" class="btn btn-primary" type="submit">@L["Upload"]</button>
+    </div>
+</form>
+<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+    @foreach (var p in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                @if (p.Status != PhotoStatus.Rejected)
+                {
+                    <img src="/Photos/File/@p.Id" class="card-img-top member-photo" alt="" />
+                }
+                else
+                {
+                    <div class="card-img-top member-photo placeholder-photo">✕</div>
+                }
+                <div class="card-body p-2">
+                    <span class="badge @(p.Status switch { PhotoStatus.Approved => "text-bg-success", PhotoStatus.Rejected => "text-bg-danger", _ => "text-bg-warning" })">@L[Labels.For(p.Status)]</span>
+                    @if (p.IsPrimary) { <span class="badge text-bg-primary">@L["Main photo"]</span> }
+                    <div class="d-flex gap-1 mt-2">
+                        @if (!p.IsPrimary && p.Status != PhotoStatus.Rejected)
+                        {
+                            <form asp-action="Primary" asp-route-id="@p.Id" method="post"><button class="btn btn-sm btn-outline-primary" type="submit">@L["Make main"]</button></form>
+                        }
+                        <form asp-action="Delete" asp-route-id="@p.Id" method="post"><button class="btn btn-sm btn-outline-danger" type="submit">@L["Delete"]</button></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

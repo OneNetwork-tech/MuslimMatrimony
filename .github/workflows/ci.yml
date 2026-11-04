@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: muslimmatrimony
+          POSTGRES_PASSWORD: muslimmatrimony
+          POSTGRES_DB: muslimmatrimony_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U muslimmatrimony"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet restore MuslimMatrimony.sln
+      - run: dotnet build MuslimMatrimony.sln -c Release --no-restore
+      - run: dotnet test MuslimMatrimony.sln -c Release --no-build
+        env:
+          TEST_DATABASE_URL: Host=localhost;Port=5432;Database=muslimmatrimony_test;Username=muslimmatrimony;Password=muslimmatrimony
+      - name: Check the migrations match the model
+        run: |
+          dotnet tool restore
+          dotnet ef migrations has-pending-model-changes --project MuslimMatrimony.Web --no-build --configuration Release
+        env:
+          ConnectionStrings__MuslimMatrimony: Host=localhost;Port=5432;Database=muslimmatrimony_test;Username=muslimmatrimony;Password=muslimmatrimony
+      - name: Fail on high/critical vulnerable packages
+        run: |
+          dotnet list MuslimMatrimony.sln package --vulnerable --include-transitive | tee vuln.txt
+          if grep -Eq "(High|Critical)" vuln.txt; then exit 1; fi
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t muslimmatrimony-ci .

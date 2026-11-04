@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = L["Privacy policy"];
+}
+<article class="col-lg-9 legal">
+    <h1 class="h2">@ViewData["Title"]</h1>
+    <p class="text-muted">@L["Version"] @Consent.CurrentVersion</p>
+    <p>@L["Nikah Noor is the data controller for the personal data you provide. This policy explains what we collect, why, and the rights you have under the GDPR."]</p>
+
+    <h2 class="h4">@L["What we collect"]</h2>
+    <ul>
+        <li>@L["Account details: first name, email address, gender, date of birth and password (stored only as a hash)."]</li>
+        <li>@L["Your profile: marital status, religious practice and sect, education, profession, location, about you and what you are looking for, and optional wali contact details."]</li>
+        <li>@L["Photos you upload. Location and other metadata are removed when you upload."]</li>
+        <li>@L["Interests, matches, messages, blocks and reports."]</li>
+    </ul>
+
+    <h2 class="h4">@L["Special category data"]</h2>
+    <p>@L["Information about your religion is special category data (GDPR Article 9). We process it only with your explicit consent, which you give at registration, and only to provide matchmaking. You can withdraw consent at any time by deleting your account."]</p>
+
+    <h2 class="h4">@L["Who can see what"]</h2>
+    <ul>
+        <li>@L["Signed-in members of the opposite gender can see your profile text, unless you pause your profile."]</li>
+        <li>@L["Your photos are visible only to your matches unless you choose to show them to all members. Moderators review every photo."]</li>
+        <li>@L["Wali details are shown only to your matches. Messages are visible only to you and the other member."]</li>
+        <li>@L["Your email address and date of birth are never shown to other members; they see your age only."]</li>
+    </ul>
+
+    <h2 class="h4">@L["Your rights"]</h2>
+    <p>@L["You can access, correct and download all your data, and delete your account, under My data (GDPR). Deleting your account removes your profile, photos, interests and messages permanently. You can also lodge a complaint with your data protection authority (in Sweden: IMY)."]</p>
+
+    <h2 class="h4">@L["Retention and security"]</h2>
+    <p>@L["We keep your data while your account exists. Passwords are hashed, all traffic is encrypted, and photos are served only to members allowed to see them. We do not sell your data or use third-party tracking."]</p>
+</article>

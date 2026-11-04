@@ -1,0 +1,12 @@
+@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = L["Check your email"];
+}
+<div class="row justify-content-center">
+    <div class="col-lg-6 text-center">
+        <h1 class="h3">@ViewData["Title"]</h1>
+        <p>@L["We have sent you an email with a link to confirm your account. Follow the link, then log in to create your profile."]</p>
+        <p class="text-muted small">@L["Didn't get it? Check your spam folder or"] <a asp-page="./ResendEmailConfirmation">@L["send it again"]</a>.</p>
+    </div>
+</div>

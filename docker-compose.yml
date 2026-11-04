@@ -1,0 +1,43 @@
+# Usage:
+#   cp .env.example .env    # fill in the secrets
+#   docker compose up -d --build
+# Web app: http://localhost:8080 (put a TLS-terminating reverse proxy in front in production)
+
+services:
+  web:
+    build: .
+    image: muslimmatrimony-web:local
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      ConnectionStrings__MuslimMatrimony: "Host=db;Database=${POSTGRES_DB:-muslimmatrimony};Username=${POSTGRES_USER:-muslimmatrimony};Password=${POSTGRES_PASSWORD}"
+      Database__MigrateOnStartup: "true"
+    ports: ["${WEB_PORT:-8080}:8080"]
+    volumes:
+      - data:/data          # photos + data-protection keys
+    depends_on:
+      db: { condition: service_healthy }
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-muslimmatrimony}
+      POSTGRES_USER: ${POSTGRES_USER:-muslimmatrimony}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # No published port: only the app container can reach the database.
+
+volumes:
+  pgdata:
+  data:

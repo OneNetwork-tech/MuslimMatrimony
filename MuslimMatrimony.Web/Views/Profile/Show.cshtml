@@ -1,0 +1,100 @@
+@model ProfilePage
+@{
+    var p = Model.Profile;
+    ViewData["Title"] = p.User!.FirstName;
+    var here = Context.Request.Path.Value;
+}
+<div class="row g-4">
+    <div class="col-lg-4">
+        @if (Model.PhotoIds.Count > 0)
+        {
+            <img src="/Photos/File/@Model.PhotoIds[0]" class="img-fluid rounded shadow-sm mb-2 profile-photo" alt="@p.User.FirstName" />
+            <div class="d-flex flex-wrap gap-2">
+                @foreach (var id in Model.PhotoIds.Skip(1))
+                {
+                    <img src="/Photos/File/@id" class="rounded thumb" alt="" loading="lazy" />
+                }
+            </div>
+        }
+        else
+        {
+            <div class="placeholder-photo rounded profile-photo">@p.User.FirstName[..1]</div>
+            <p class="small text-muted mt-2">@(p.Photos.Any(x => x.Status == PhotoStatus.Approved) ? L["Photos are visible to matches only."] : L["No photos yet."])</p>
+        }
+    </div>
+    <div class="col-lg-8">
+        <h1 class="h2 mb-1">@p.User.FirstName, @Model.Age</h1>
+        <p class="text-muted">@p.City, @p.Country @(p.WillingToRelocate ? "· " + L["Willing to relocate"] : "")</p>
+
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            @if (Model.IsMatch)
+            {
+                <span class="badge text-bg-success align-self-center">@L["Mutual match"]</span>
+                <a class="btn btn-primary" asp-controller="Messages" asp-action="Thread" asp-route-id="@p.UserId">@L["Send a message"]</a>
+            }
+            else if (Model.InterestSent)
+            {
+                <span class="badge text-bg-secondary align-self-center">@L["Interest sent"]</span>
+            }
+            else if (!p.IsHidden)
+            {
+                <form asp-controller="Interests" asp-action="Express" method="post">
+                    <input type="hidden" name="userId" value="@p.UserId" />
+                    <input type="hidden" name="returnUrl" value="@here" />
+                    <button id="expressInterest" class="btn btn-primary" type="submit">@(Model.InterestReceived ? L["Accept interest"] : L["I'm interested"])</button>
+                </form>
+            }
+            @if (Model.InterestSent)
+            {
+                <form asp-controller="Interests" asp-action="Withdraw" method="post">
+                    <input type="hidden" name="userId" value="@p.UserId" />
+                    <input type="hidden" name="returnUrl" value="@here" />
+                    <button class="btn btn-outline-secondary" type="submit">@L["Withdraw interest"]</button>
+                </form>
+            }
+            <form asp-controller="Safety" asp-action="Block" method="post" class="ms-auto">
+                <input type="hidden" name="userId" value="@p.UserId" />
+                <button class="btn btn-outline-danger btn-sm" type="submit">@L["Block"]</button>
+            </form>
+            <a class="btn btn-outline-danger btn-sm" asp-controller="Safety" asp-action="Report" asp-route-id="@p.UserId">@L["Report"]</a>
+        </div>
+
+        @if (!string.IsNullOrEmpty(p.AboutMe))
+        {
+            <h2 class="h5">@L["About me"]</h2>
+            <p class="prewrap">@p.AboutMe</p>
+        }
+        @if (!string.IsNullOrEmpty(p.LookingFor))
+        {
+            <h2 class="h5">@L["What I am looking for"]</h2>
+            <p class="prewrap">@p.LookingFor</p>
+        }
+
+        <dl class="row details">
+            <dt class="col-sm-4">@L["Marital status"]</dt><dd class="col-sm-8">@L[Labels.For(p.MaritalStatus)]</dd>
+            <dt class="col-sm-4">@L["Sect"]</dt><dd class="col-sm-8">@L[Labels.For(p.Sect)]</dd>
+            <dt class="col-sm-4">@L["Religious practice"]</dt><dd class="col-sm-8">@L[Labels.For(p.ReligiousPractice)]</dd>
+            <dt class="col-sm-4">@L["Prayer"]</dt><dd class="col-sm-8">@L[Labels.For(p.PrayerFrequency)]</dd>
+            @if (p.HeightCm is int h)
+            {
+                <dt class="col-sm-4">@L["Height (cm)"]</dt><dd class="col-sm-8">@h</dd>
+            }
+            @if (!string.IsNullOrEmpty(p.Education)) { <dt class="col-sm-4">@L["Education"]</dt><dd class="col-sm-8">@p.Education</dd> }
+            @if (!string.IsNullOrEmpty(p.Profession)) { <dt class="col-sm-4">@L["Profession"]</dt><dd class="col-sm-8">@p.Profession</dd> }
+            @if (!string.IsNullOrEmpty(p.Ethnicity)) { <dt class="col-sm-4">@L["Ethnicity"]</dt><dd class="col-sm-8">@p.Ethnicity</dd> }
+            @if (!string.IsNullOrEmpty(p.Languages)) { <dt class="col-sm-4">@L["Languages"]</dt><dd class="col-sm-8">@p.Languages</dd> }
+            <dt class="col-sm-4">@L["I have children"]</dt><dd class="col-sm-8">@(p.HasChildren ? L["Yes"] : L["No"])</dd>
+            <dt class="col-sm-4">@L["Would like children"]</dt><dd class="col-sm-8">@L[Labels.For(p.WantsChildren)]</dd>
+        </dl>
+
+        @if (Model.IsMatch && (p.WaliName is not null || p.WaliContact is not null))
+        {
+            <div class="card border-success mt-3">
+                <div class="card-body">
+                    <h2 class="h6">@L["Wali (guardian)"]</h2>
+                    <p class="mb-0">@p.WaliName @(p.WaliContact is null ? "" : "– " + p.WaliContact)</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

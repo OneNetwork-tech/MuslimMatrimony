@@ -1,0 +1,27 @@
+@model ReportForm
+@{
+    ViewData["Title"] = L["Report a member"];
+}
+<div class="col-lg-7">
+    <h1 class="h3">@ViewData["Title"]: @ViewData["Name"]</h1>
+    <p class="text-muted">@L["Reports are confidential. The member is not told who reported them."]</p>
+    <form asp-action="Report" method="post" class="card card-body shadow-sm">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div asp-validation-summary="All" class="text-danger"></div>
+        }
+        <input type="hidden" asp-for="UserId" />
+        <div class="mb-3">
+            <label asp-for="Reason" class="form-label">@L["Reason"]</label>
+            <select asp-for="Reason" class="form-select">
+                @foreach (var r in Enum.GetValues<ReportReason>()) { <option value="@r">@L[Labels.For(r)]</option> }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Details" class="form-label">@L["Details"]</label>
+            <textarea asp-for="Details" class="form-control" rows="4" maxlength="2000"></textarea>
+        </div>
+        <div class="form-check mb-3"><input asp-for="AlsoBlock" class="form-check-input" /><label asp-for="AlsoBlock" class="form-check-label">@L["Also block this member"]</label></div>
+        <button class="btn btn-danger" type="submit">@L["Send report"]</button>
+    </form>
+</div>

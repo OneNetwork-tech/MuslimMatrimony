@@ -1,0 +1,25 @@
+@model List<ConversationSummary>
+@{
+    ViewData["Title"] = L["Messages"];
+}
+<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+@if (Model.Count == 0)
+{
+    <p class="text-muted">@L["No conversations yet. You can message members once you are a mutual match."]</p>
+    <a class="btn btn-outline-primary" asp-controller="Interests" asp-action="Index" asp-route-tab="matches">@L["See my matches"]</a>
+}
+<div class="list-group">
+    @foreach (var c in Model)
+    {
+        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-start" asp-action="Thread" asp-route-id="@c.OtherUserId">
+            <div>
+                <div class="fw-semibold">@c.OtherFirstName</div>
+                <div class="small text-muted">@c.LastMessagePreview</div>
+            </div>
+            <div class="text-end small">
+                <time datetime="@c.LastMessageAt.ToString("o")" class="js-localtime">@c.LastMessageAt.ToString("yyyy-MM-dd HH:mm") UTC</time>
+                @if (c.Unread > 0) { <span class="badge text-bg-primary d-block mt-1">@c.Unread</span> }
+            </div>
+        </a>
+    }
+</div>
