@@ -45,7 +45,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(o =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Production always runs behind HTTPS; plain-HTTP localhost is allowed in Development only.
-var cookieSecurity = builder.Environment.IsDevelopment() ? CookieSecurePolicy.SameAsRequest : CookieSecurePolicy.Always;
+// Set Security:HttpsOnly=false only to test over plain HTTP on a LAN.
+var httpsOnly = config.GetValue("Security:HttpsOnly", !builder.Environment.IsDevelopment());
+var cookieSecurity = httpsOnly ? CookieSecurePolicy.Always : CookieSecurePolicy.SameAsRequest;
 
 // Suspensions and password changes end other sessions quickly.
 builder.Services.Configure<SecurityStampValidatorOptions>(o => o.ValidationInterval = TimeSpan.FromMinutes(1));
@@ -164,12 +166,16 @@ app.UseForwardedHeaders();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+}
+
+if (httpsOnly)
+{
     app.UseHsts();
+    app.UseHttpsRedirection();
 }
 
 app.UseStatusCodePagesWithReExecute("/Home/Status/{0}");
 app.UseSecurityHeaders();
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRequestLocalization();
 app.UseRouting();

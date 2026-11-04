@@ -4,3 +4,9 @@
 .git
 .env
 MuslimMatrimony.Tests/
+deploy
+.github
+.env.*
+!.env.example
+**/*.md
+tools

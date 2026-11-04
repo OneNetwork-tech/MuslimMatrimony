@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 # Uploaded photos and local data
 App_Data/
+
+# Server secrets for deploy/
+deploy/.env
