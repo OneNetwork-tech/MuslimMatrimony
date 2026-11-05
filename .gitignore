@@ -366,3 +366,4 @@ App_Data/
 
 # Server secrets for deploy/
 deploy/.env
+deploy/backups/

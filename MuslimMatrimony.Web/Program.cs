@@ -143,6 +143,12 @@ builder.Services.Configure<ForwardedHeadersOptions>(o =>
     {
         o.KnownProxies.Add(IPAddress.Parse(ip));
     }
+
+    // CIDR ranges, e.g. 172.16.0.0/12 for a reverse proxy on the Docker host.
+    foreach (var network in config.GetSection("ForwardedHeaders:KnownNetworks").Get<string[]>() ?? [])
+    {
+        o.KnownIPNetworks.Add(System.Net.IPNetwork.Parse(network));
+    }
 });
 
 var app = builder.Build();

@@ -11,7 +11,7 @@ services:
     environment:
       ConnectionStrings__MuslimMatrimony: "Host=db;Database=${POSTGRES_DB:-muslimmatrimony};Username=${POSTGRES_USER:-muslimmatrimony};Password=${POSTGRES_PASSWORD}"
       Database__MigrateOnStartup: "true"
-    ports: ["${WEB_PORT:-8083}:8080"]
+    ports: ["${BIND_ADDRESS:-0.0.0.0}:${WEB_PORT:-8083}:8080"]
     volumes:
       - data:/data          # photos + data-protection keys
     depends_on:
