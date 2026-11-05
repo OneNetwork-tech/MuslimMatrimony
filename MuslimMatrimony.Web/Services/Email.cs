@@ -19,6 +19,12 @@ public sealed class EmailOptions
     public string FromName { get; set; } = "Nikah Noor";
     /// <summary>Auto, StartTls or SslOnConnect.</summary>
     public string Security { get; set; } = "StartTls";
+
+    /// <summary>
+    /// When SMTP is not configured, print whole emails (including account links) to the log.
+    /// For testing without a mail server only; always on in Development.
+    /// </summary>
+    public bool LogBodies { get; set; }
 }
 
 public sealed record SentEmail(string To, string Subject, string HtmlBody, DateTime SentAt);
@@ -50,7 +56,7 @@ public sealed class SmtpEmailSender(IOptions<EmailOptions> options, EmailOutbox 
         {
             outbox.Add(new SentEmail(email, subject, htmlMessage, DateTime.UtcNow));
             // Bodies contain account links; only print them in Development.
-            if (env.IsDevelopment())
+            if (env.IsDevelopment() || o.LogBodies)
             {
                 logger.LogInformation("SMTP not configured. Email to {To}: {Subject}\n{Body}", email, subject, htmlMessage);
             }
