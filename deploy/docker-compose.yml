@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      ConnectionStrings__MuslimMatrimony: "Host=db;Database=${POSTGRES_DB:-muslimmatrimony};Username=${POSTGRES_USER:-muslimmatrimony};Password=${POSTGRES_PASSWORD}"
+      ConnectionStrings__MuslimMatrimony: "Host=db;Database=${POSTGRES_DB:-muslimmatrimony};Username=${POSTGRES_USER:-muslimmatrimony};Password=${POSTGRES_PASSWORD};Gss Encryption Mode=Disable"
       Database__MigrateOnStartup: "true"
     ports: ["${BIND_ADDRESS:-0.0.0.0}:${WEB_PORT:-8083}:8080"]
     volumes:
