@@ -64,6 +64,26 @@ jobs:
           curl -fsS http://localhost:8080/Identity/Account/Register | grep -q "__RequestVerificationToken"
           docker logs app
 
+  # The README's "quick test on your own computer", run on a clean machine:
+  # setup-local.sh + BUILD=1 deploy.sh, then the pages must load on localhost.
+  quickstart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup-local.sh and BUILD=1 deploy.sh
+        working-directory: deploy
+        run: |
+          ./setup-local.sh
+          BUILD=1 ./deploy.sh
+      - name: Pages load on localhost
+        run: |
+          curl -fsS http://localhost:8083/ | grep -q "Nikah Noor"
+          curl -fsS http://localhost:8083/Identity/Account/Register | grep -q __RequestVerificationToken
+      - name: Logs on failure
+        if: failure()
+        working-directory: deploy
+        run: docker compose logs --tail=200
+
   # CD part 1: every push (any branch, v* tags) publishes the image to GitHub Container Registry.
   #   ghcr.io/<owner>/muslimmatrimony:<branch>   e.g. claude-charming-noether-lhy664
   #   ghcr.io/<owner>/muslimmatrimony:sha-<7>    one per commit

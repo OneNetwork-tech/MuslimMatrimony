@@ -53,12 +53,17 @@ Image: `ghcr.io/onenetwork-tech/muslimmatrimony`.
 
 The server needs nothing except Docker with the Compose plugin. Nothing is built there.
 
-**Quick test on your own computer.** In the `deploy` folder (or a copy of it):
+**Quick test on your own computer.** In a clone of this repository:
 
 ```bash
-./setup-local.sh claude-charming-noether-lhy664   # creates .env with random secrets; use "latest" once merged
-./deploy.sh
+cd deploy
+./setup-local.sh      # creates .env with random secrets
+BUILD=1 ./deploy.sh   # builds the image on your computer (first time: a few minutes) and starts it
 ```
+
+Or run `./deploy.sh` without `BUILD=1` to download the image CI already built. That needs a one-time `docker login ghcr.io` with a GitHub token that has `read:packages`, while the packages are private.
+
+You need Docker Desktop (or Docker Engine with Compose), running before you start. On Windows, run the commands in **Git Bash** (comes with Git for Windows) or WSL, not in PowerShell or cmd.
 
 Then open http://localhost:8083. No mail server is needed: after registering, copy the confirmation link from `docker compose logs web | grep -A2 "Confirm your"`. To start over, run `docker compose down -v && rm .env`.
 
